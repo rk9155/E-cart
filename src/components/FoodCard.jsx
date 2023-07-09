@@ -36,11 +36,11 @@ const FoodCard = ({name, price, img, id}) => {
             <div className='menu-card'>
                 <p style={{fontSize: '14px'}}>{name}</p>
                 <p style={{fontSize: '12px'}}>₹{price}</p>
-                {countItemInCart < 1 ? <button className='menu-add-to-cart-btn' onClick={()=> handleAddItemToCart({id, name, price, count:1})}>Add to cart</button> :
+                {countItemInCart < 1 ? <button className='menu-add-to-cart-btn' onClick={()=> handleAddItemToCart({id, name, price, count:1, img})}>Add to cart</button> :
                         <div className='counter'>
-                            <div className='counter-btn' onClick={()=> handleIncreaseItem({id,name, price})}>+</div>
+                            <div className='counter-btn' onClick={()=> handleIncreaseItem({id,name, price, img})}>+</div>
                             <div className='count'>{countItemInCart}</div>
-                            <div className='counter-btn' onClick={()=> handleDecreaseItem({id,name,price})}>-</div>
+                            <div className='counter-btn' onClick={()=> handleDecreaseItem({id,name,price, img})}>-</div>
                         </div>
                 }
             </div>

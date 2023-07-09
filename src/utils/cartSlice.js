@@ -27,15 +27,22 @@ const cartSlice = createSlice({
     },
 
     decreaseItem: (state, action) => {
-      state.items = state.items.map((item) => {
-        if (item.id === action.payload.id) {
-          return {
-            ...item,
-            count: item.count - 1,
-          };
-        }
-        return item;
-      });
+      state.items = state.items
+        .map((item) => {
+          if (item.id === action.payload.id) {
+            const updatedCount = item.count - 1;
+            if (updatedCount <= 0) {
+              return null;
+            } else {
+              return {
+                ...item,
+                count: updatedCount,
+              };
+            }
+          }
+          return item;
+        })
+        .filter((item) => item !== null);
       state.cartLength = state.cartLength - 1;
     },
 

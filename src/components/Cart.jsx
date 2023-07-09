@@ -9,12 +9,14 @@ import {useSelector} from "react-redux";
 import {Provider, useDispatch} from 'react-redux';
 
 import store from "../utils/store";
+import FoodCard from "./FoodCard";
 import { clearCart } from "../utils/cartSlice";
 
 
 const Cart = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector(store => store.cart.items);
+  const cartLength = useSelector(store => store.cart.cartLength);
 
   const handleClearCart = () => {
     dispatch(clearCart());
@@ -27,11 +29,15 @@ const Cart = () => {
     })
     return totalPrice;
   }
+
+  const handleCartSubmit = () => {
+    console.log('Product selected', cartItems);
+  }
   
   return (
     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
         <div style={{display: 'flex', flexDirection: 'row', gap: '50px', alignItems: 'center', justifyContent: 'center'}}>
-            <h4>Cart ({cartItems.length})</h4>
+            <h4>Cart ({cartLength})</h4>
             {cartItems.length !== 0 && <button onClick={handleClearCart}>Clear Cart</button>}
         </div>
         {cartItems.length === 0 && 
@@ -42,15 +48,17 @@ const Cart = () => {
                 </Link>
             </div>
         }
-        {cartItems.map((item) => {
+        <div className="food-menu-items">
+          {cartItems.map((item) => {
             return (
-                <div style={{display: 'flex', flexDirection: 'row', gap: '10px'}}>
-                    <p>{item.name} - {item.count} items</p>
-                    <p>{item.price}</p>
-                </div>
-            )
-        })}
-        <h4>Total - {calculateTotalPrice()}</h4>
+              item.count > 0 && <FoodCard {...item} key={item.id}/>
+            )}
+          )}
+        </div>
+        <div style={{marginTop: '20px'}}>
+          <h4 style={{marginTop: '20px'}}>Total - {calculateTotalPrice()}</h4>
+          {cartItems.length !== 0 && <button onClick={handleCartSubmit}>Proceed to pay</button>}
+        </div>
     </div>
   );
 };
