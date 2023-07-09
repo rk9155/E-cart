@@ -1,0 +1,103 @@
+body {
+    font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    color: #2d393e;
+    background-color: #f6f6f6;
+}
+
+.header-container {
+    position: relative;
+    padding: 30px;
+    background-color: #F2EDE3;
+    height: 10em;
+}
+
+.header-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header-items {
+    height: 10em;
+    width: 50em;
+    top: 8em;
+    background-color: #fff;
+    position: absolute;
+    z-index: 2;
+    box-shadow: 0px 15px 10px -15px #111;
+}
+
+.header-items-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.header-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.header-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-right: 1px solid #d3d3d3;
+}
+
+.home-container {
+    margin: 4em;
+}
+
+.home-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.food-menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.menu-card-container {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+}
+
+.menu-card {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-card>p {
+    margin: 5px;
+}
+
+.menu-card-img {
+    width: inherit;
+    height: 125px;
+}
+
+.menu-card-img:hover {
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+.menu-add-to-cart-btn {
+    background-color: #f6f6f6;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    padding: 4px 10px;
+}
