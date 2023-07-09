@@ -1,4 +1,8 @@
 
+/**
+ * @description - Production promotion card
+ */
+
 import React from 'react';
 import Image1 from "../header_card1.png"
 import Image2 from "../header_card2.png"

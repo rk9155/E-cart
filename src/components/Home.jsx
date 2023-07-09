@@ -1,3 +1,6 @@
+/**
+ * @description - Component to show all products that we have
+ */
 
 import React from "react";
 import FoodItems from './FoodItems';

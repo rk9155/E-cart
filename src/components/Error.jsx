@@ -1,3 +1,8 @@
+
+/**
+ * @description - Error page for wrong routes.
+ */
+
 import React from "react";
 
 const Error = () => {

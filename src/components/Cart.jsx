@@ -1,3 +1,8 @@
+/**
+ * @description - Cart with all the items taht user added to checkout.
+ */
+
+
 import React from "react";
 import { Link } from "react-router-dom";
 import {useSelector} from "react-redux";
@@ -15,6 +20,14 @@ const Cart = () => {
     dispatch(clearCart());
   }
 
+  const calculateTotalPrice = () => {
+    let totalPrice = 0;
+    cartItems.forEach((item) => {
+      totalPrice = totalPrice + item.count * item.price;
+    })
+    return totalPrice;
+  }
+  
   return (
     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
         <div style={{display: 'flex', flexDirection: 'row', gap: '50px', alignItems: 'center', justifyContent: 'center'}}>
@@ -32,11 +45,12 @@ const Cart = () => {
         {cartItems.map((item) => {
             return (
                 <div style={{display: 'flex', flexDirection: 'row', gap: '10px'}}>
-                    <p>{item.name}</p>
+                    <p>{item.name} - {item.count} items</p>
                     <p>{item.price}</p>
                 </div>
             )
         })}
+        <h4>Total - {calculateTotalPrice()}</h4>
     </div>
   );
 };
